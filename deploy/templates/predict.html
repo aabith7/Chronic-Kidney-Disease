@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            margin-right: 15px;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal (Pop-up) Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            position: relative;
+            animation: slideIn 0.3s ease-out; /* Animation for pop-up */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .modal-content p {
+            margin: 0 0 20px;
+            color: #555;
+        }
+
+        .modal-content button {
+            background-color: #28a745;
+            padding: 8px 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Medical Form</h2>
+        <form id="medicalForm" method="POST" action="/predict">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="bp">Blood Pressure:</label>
+            <input type="text" id="bp" name="bp" placeholder="e.g., 120/80" required>
+
+            <label for="sg">Specific Gravity:</label>
+            <input type="text" id="sg" name="sg" required>
+
+            <label for="al">Albumin:</label>
+            <input type="text" id="al" name="al" required>
+
+            <label for="su">Sugar:</label>
+            <input type="text" id="su" name="su" required>
+
+            <label for="rbc">RBC:</label>
+            <input type="text" id="rbc" name="rbc" required>
+
+            <label for="pc">Pus Cells:</label>
+            <input type="text" id="pc" name="pc" required>
+
+            <label for="bgr">Blood Glucose Random:</label>
+            <input type="text" id="bgr" name="bgr" placeholder="mg/dL" required>
+
+            <label for="bu">Blood Urea:</label>
+            <input type="text" id="bu" name="bu" placeholder="mg/dL" required>
+
+            <label for="sc">Serum Creatinine:</label>
+            <input type="text" id="sc" name="sc" placeholder="mg/dL" required>
+
+            <label for="sod">Sodium:</label>
+            <input type="text" id="sod" name="sod" placeholder="mEq/L" required>
+
+            <label for="hemo">Hemoglobin:</label>
+            <input type="text" id="hemo" name="hemo" placeholder="g/dL" required>
+
+            <label for="pcv">Packed Cell Volume:</label>
+            <input type="text" id="pcv" name="pcv" placeholder="%" required>
+
+            <label for="wbcc">WBC Count:</label>
+            <input type="text" id="wbcc" name="wbcc" placeholder="cells/µL" required>
+
+            <label for="rbcc">RBC Count:</label>
+            <input type="text" id="rbcc" name="rbcc" placeholder="million cells/µL" required>
+
+            <div class="radio-group">
+                <label>Hypertension:</label>
+                <input type="radio" id="htn-yes" name="htn" value="1" required>
+                <label for="htn-yes">Yes</label>
+                <input type="radio" id="htn-no" name="htn" value="0">
+                <label for="htn-no">No</label>
+            </div>
+
+            <div class="radio-group">
+                <label>Diabetes Mellitus:</label>
+                <input type="radio" id="dm-yes" name="dm" value="1" required>
+                <label for="dm-yes">Yes</label>
+                <input type="radio" id="dm-no" name="dm" value="0">
+                <label for="dm-no">No</label>
+            </div>
+
+            <div class="radio-group">
+                <label>Anemia:</label>
+                <input type="radio" id="ane-yes" name="ane" value="1" required>
+                <label for="ane-yes">Yes</label>
+                <input type="radio" id="ane-no" name="ane" value="0">
+                <label for="ane-no">No</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Modal for stylish pop-up -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h3>Prediction Result</h3>
+            <p id="resultText"></p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('resultModal');
+        const resultText = document.getElementById('resultText');
+
+        function showModal(message) {
+            resultText.textContent = message;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        document.getElementById('medicalForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            const formData = new FormData(this);
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.text();
+                showModal(result); // Show stylish pop-up with result
+            } catch (error) {
+                showModal('Error: Unable to connect to the server.');
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>

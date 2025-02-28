@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CKD Awareness - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-image: url('templates/images.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: rgba(46, 204, 113, 0.9); /* Soft green, semi-transparent */
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h1 {
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .sidebar nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .content {
+            margin-left: 270px; /* Space for sidebar */
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .intro-box {
+            background-color: rgba(255, 255, 255, 0.95); /* Almost fully opaque white */
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+        .intro-box h2 {
+            color: #2ecc71; /* Matching green */
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        .intro-box p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .action-btn {
+            background-color: #3498db; /* Soft blue */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .action-btn:hover {
+            background-color: #2980b9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .sidebar footer {
+            color: white;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-image: url('templates/images.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .predict-btn {
+            background-color: #e74c3c; /* Red, matching previous theme */
+            color: white;
+            padding: 12px 30px; /* Larger padding for a bold look */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1.2em; /* Slightly larger text */
+            font-weight: bold; /* Bold text for emphasis */
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transitions */
+        }
+        .predict-btn:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+        }
+        .predict-btn:active {
+            transform: translateY(0); /* Reset lift when clicked */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow when pressed */
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <h1>CKD Hub</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#info">CKD Info</a>
+                <a href="#tool">Risk Tool</a>
+                <a href="#resources">Resources</a>
+            </nav>
+        </div>
+        <footer>© 2025 CKD Hub</footer>
+    </div>
+
+    <div class="content">
+        <div class="intro-box">
+            <h2>Chronic Kidney Disease</h2>
+            <p>Discover essential information about CKD and take control of your health with our easy-to-use risk assessment tool.</p>
+            <a href="/predict"><button class="predict-btn">Predict</button></a>
+        </div>
+    </div>
+</body>
+</html> 
