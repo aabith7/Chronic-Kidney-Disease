@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-application = app  # For deployment platforms
+application = app  # For deployment platformsgit init
 
 # Load the model and scaler
 with open('deploy/models/model.pkl', 'rb') as file:
