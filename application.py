@@ -6,9 +6,9 @@ app = Flask(__name__)
 application = app  # For deployment platformsgit init
 
 # Load the model and scaler
-with open('deploy/models/model.pkl', 'rb') as file:
+with open('models/model.pkl', 'rb') as file:
     log_model = pickle.load(file)
-with open('deploy/models/scale.pkl', 'rb') as file:
+with open('models/scale.pkl', 'rb') as file:
     scale = pickle.load(file)
 
 @app.route('/')
